@@ -20,9 +20,8 @@ const Home = () => {
       </div>
 
       <div className="info-text">
-        <p><span>Exercite sua memória</span> com diversão garantida! O <span>Jogo da Memória Visual Mídia</span> está aqui
-          para desafiar
-          sua mente</p>
+        <p><span>Exercite seus</span> reflexos com diversão garantida! O <span>jogo de Reflexos da Visual Mídia</span> está aqui
+          para te desafiar!</p>
       </div>
 
       <Link to={`/play`}>
