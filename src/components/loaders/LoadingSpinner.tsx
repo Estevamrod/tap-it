@@ -1,3 +1,4 @@
+import * as React from 'react'
 const LoadingSpinner = () => {
   return (
     <div className='flex justify-center' role='status'>

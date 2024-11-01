@@ -1,20 +1,13 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Dropdown from '../common/Dropdown'; // Se não precisar do Dropdown, você pode remover essa importação também.
 
 const Navbar: React.FC = () => {
   const [navbar, setNavbar] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const handleDropdownClick = () => {
-    setDropdown(!dropdown);
-  };
 
   const handleClick = () => {
     setNavbar(false);
-    setDropdown(false);
   };
 
   useEffect(() => {
@@ -23,7 +16,6 @@ const Navbar: React.FC = () => {
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        setDropdown(false);
       }
     };
 

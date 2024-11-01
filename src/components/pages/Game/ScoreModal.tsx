@@ -9,9 +9,7 @@ type ScoreProps = {
 
 const Modal: React.FC<ScoreProps> = ({
   isOpen,
-  onClose,
   score,
-  message
 }) => {
 
   if (!isOpen) {

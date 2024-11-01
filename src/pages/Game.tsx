@@ -18,8 +18,6 @@ const Game: React.FC = () => {
   const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
   const [gameStart, setGameStart] = useState(false);
   const [score, setScore] = useState(0);
-  const [combo, setCombo] = useState(0);
-  const [multiPts, setMultiPts] = useState(5);
   const [timer, setTimer] = useState(10);
   const [modalOpen, setModalOpen] = useState(false);
   const [device, setDevice] = useState('');
@@ -37,8 +35,6 @@ const Game: React.FC = () => {
   const restartGame = () => {
     setGameStart(false);
     setScore(0);
-    setCombo(0);
-    setMultiPts(5);
     setTimer(10);
     setBlackSquareIndices(generateUniqueIndices());
   };
@@ -57,18 +53,9 @@ const Game: React.FC = () => {
       const gameTimer = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
-      const multiplierTimer = setInterval(() => {
-        setMultiPts((prevMultiPts) => {
-          if (prevMultiPts > 5) {
-            return prevMultiPts - 1;
-          }
-          return prevMultiPts;
-        });
-      }, 350);
 
       return () => {
         clearInterval(gameTimer);
-        clearInterval(multiplierTimer);
       };
     }
   }, [gameStart]);
@@ -115,11 +102,7 @@ const Game: React.FC = () => {
         return oldIndex;
       });
       setBlackSquareIndices(newIndices);
-      setCombo((prevCombo) => prevCombo + 1);
       setScore((prevScore) => prevScore + 1);
-    } else {
-      setCombo(0);
-      setMultiPts(5);
     }
   };
 

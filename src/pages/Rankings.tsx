@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState, useEffect, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import RankTable from '../components/pages/Rankings/RankTable';
 import Pagination from '../components/pages/Rankings/Pagination';
 
 const Rankings = () => {
