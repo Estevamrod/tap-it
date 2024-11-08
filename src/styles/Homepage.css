@@ -36,7 +36,7 @@ body {
   }
   .logo-vm{
     position: absolute;
-    top: 78%;
+    top: 85%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -87,7 +87,7 @@ body {
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 71%;
+    top: 82%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
@@ -193,7 +193,7 @@ body {
   }
   .logo-vm{
     position: absolute;
-    top: 78%;
+    top: 85%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -240,7 +240,7 @@ body {
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 71%;
+    top: 82%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
@@ -333,7 +333,7 @@ body {
   }
   .logo-vm{
     position: absolute;
-    top: 78%;
+    top: 85%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -406,7 +406,7 @@ body {
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 71%;
+    top: 82%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
