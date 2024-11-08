@@ -26,17 +26,17 @@ body {
   }
   .guy-container{
     position: absolute;
-    right: -38%;
-    top: 58%;
+    right: -12%;
+    top: 64%;
     z-index: 99999;
   }
   .guy{
-    width: 80%;
+    width: 727px;
     height: auto;
   }
   .logo-vm{
     position: absolute;
-    top: 75%;
+    top: 78%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -183,17 +183,17 @@ body {
   }
   .guy-container{
     position: absolute;
-    right: -38%;
-    top: 58%;
+    right: -12%;
+    top: 64%;
     z-index: 99999;
   }
   .guy{
-    width: 80%;
+    width: 727px;
     height: auto;
   }
   .logo-vm{
     position: absolute;
-    top: 75%;
+    top: 78%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -323,17 +323,17 @@ body {
   }
   .guy-container{
     position: absolute;
-    right: -38%;
-    top: 58%;
+    right: -12%;
+    top: 64%;
     z-index: 99999;
   }
   .guy{
-    width: 80%;
+    width: 727px;
     height: auto;
   }
   .logo-vm{
     position: absolute;
-    top: 75%;
+    top: 78%;
     /* left: 50%; */
     z-index: 9999;
   }
