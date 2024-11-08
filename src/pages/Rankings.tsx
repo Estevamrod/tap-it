@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Ranking.css'; // Certifique-se de que a folha de estilo esteja no mesmo diretório ou ajuste o caminho conforme necessário.
 import Logo1 from '../assets/logo.png';
 import casa from '../assets/casa.png';
 import Logo2 from '../assets/logovm.png';

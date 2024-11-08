@@ -8,8 +8,8 @@ import photoshop from '../assets/photoshop.png'
 import illustrator from '../assets/illustrator.png'
 import csharp from '../assets/csharp.png'
 import Logo2 from '../assets/logovm.png';
-import guyPointing from '../assets/guy_pointing.png'
-import '../styles/index.css'
+import guyPointing from '../assets/guy.png'
+import '../styles/Homepage.css'
 
 const Home = () => {
   return (
@@ -41,7 +41,7 @@ const Home = () => {
       </div>
       <div className="yellow-circle"></div>
       <div className="logo-vm">
-        <img className="logo2" src={Logo2} alt="Logo_VisualMidia"/>
+        <img className="logo2" src={Logo2}/>
       </div>
       <div className="guy-container">
         <img src={guyPointing} className="guy"/>
