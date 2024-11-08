@@ -27,7 +27,7 @@ body {
   .guy-container{
     position: absolute;
     right: -38%;
-    top: 68%;
+    top: 58%;
     z-index: 99999;
   }
   .guy{
@@ -36,7 +36,7 @@ body {
   }
   .logo-vm{
     position: absolute;
-    top: 88%;
+    top: 75%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -83,11 +83,11 @@ body {
   }
   .yellow-circle {
     width: 137%;
-    height: 508px;
+    height: 684px;
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 80%;
+    top: 71%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
@@ -184,7 +184,7 @@ body {
   .guy-container{
     position: absolute;
     right: -38%;
-    top: 68%;
+    top: 58%;
     z-index: 99999;
   }
   .guy{
@@ -193,7 +193,7 @@ body {
   }
   .logo-vm{
     position: absolute;
-    top: 88%;
+    top: 75%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -236,11 +236,11 @@ body {
   }
   .yellow-circle {
     width: 137%;
-    height: 508px;
+    height: 684px;
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 80%;
+    top: 71%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
@@ -324,7 +324,7 @@ body {
   .guy-container{
     position: absolute;
     right: -38%;
-    top: 68%;
+    top: 58%;
     z-index: 99999;
   }
   .guy{
@@ -333,7 +333,7 @@ body {
   }
   .logo-vm{
     position: absolute;
-    top: 88%;
+    top: 75%;
     /* left: 50%; */
     z-index: 9999;
   }
@@ -402,11 +402,11 @@ body {
   }
   .yellow-circle {
     width: 137%;
-    height: 508px;
+    height: 684px;
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 80%;
+    top: 71%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
