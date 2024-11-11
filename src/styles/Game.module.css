@@ -50,3 +50,13 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+.img_control{
+    display: grid;
+    width: 90%;
+    position: absolute;
+    top: 7%;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 10px;
+    align-items: center;
+    justify-items: center;
+}

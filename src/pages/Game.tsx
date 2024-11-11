@@ -5,6 +5,8 @@ import Tiles from '../components/pages/Game/Tiles';
 import ScoreBar from '../components/pages/Game/ScoreBar';
 import ScoreModal from '../components/pages/Game/ScoreModal';
 import TimerBar from '../components/pages/Game/Time';
+import logo_vm from '../assets/vm.png'
+import pixelArt from '../assets/pixelArt_logo.png'
 import game from '../styles/Game.module.css';
 
 const generateUniqueIndices = () => {
@@ -102,6 +104,10 @@ const Game: React.FC = () => {
 
   return (
     <div className={game.flexGrow}>
+      <div className={game.img_control}>
+        <img src={logo_vm} style={{width:'60%'}}/>
+        <img src={pixelArt}/>
+      </div>
       <div className={game.barControl}>
         <ScoreBar score={score} />
         <TimerBar timer={timer} />

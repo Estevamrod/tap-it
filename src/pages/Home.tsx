@@ -7,7 +7,7 @@ import powerpoint from '../assets/powerpoint.jpg'
 import photoshop from '../assets/photoshop.jpg'
 import illustrator from '../assets/illustrator.jpg'
 import csharp from '../assets/csharp.jpg'
-import Logo2 from '../assets/logovm.png';
+import Logo2 from '../assets/vm_branca.png';
 import guyPointing from '../assets/teste.png'
 import '../styles/Homepage.css'
 
