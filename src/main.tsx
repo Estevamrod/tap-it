@@ -6,10 +6,8 @@ import App from './App';
 import './index.css';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-        <HelmetTags />
-        <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+      <HelmetTags />
+      <App />
+  </BrowserRouter>
 );
