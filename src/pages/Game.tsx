@@ -1,12 +1,12 @@
-import * as React from 'react'
-import {useState, useEffect } from 'react';
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Tiles from '../components/pages/Game/Tiles';
 import ScoreBar from '../components/pages/Game/ScoreBar';
 import ScoreModal from '../components/pages/Game/ScoreModal';
 import TimerBar from '../components/pages/Game/Time';
-import logo_vm from '../assets/vm.png'
-import pixelArt from '../assets/pixelArt_logo.png'
+import logo_vm from '../assets/vm.png';
+import pixelArt from '../assets/pixelArt_logo.png';
 import game from '../styles/Game.module.css';
 
 const generateUniqueIndices = () => {
@@ -72,25 +72,29 @@ const Game: React.FC = () => {
   }, [modalOpen, navigate]);
 
   const handleSquareClick = (index: number): void => {
+    // Iniciar o jogo no primeiro clique
     if (!gameStart) {
       setGameStart(true);
     }
 
-    if (selectedIndices.includes(index)) {
-      setSelectedIndices((prevIndices) => prevIndices.filter((selectedIndex) => selectedIndex !== index));
-    } else {
-      setSelectedIndices((prevIndices) => [...prevIndices, index]);
-    }
-
+    // Verifica se o índice é um quadrado preto
     if (blackSquareIndices.includes(index)) {
-      const newIndices = blackSquareIndices.map((oldIndex) => {
-        if (oldIndex === index) {
-          return generateUniqueIndex();
-        }
-        return oldIndex;
-      });
-      setBlackSquareIndices(newIndices);
+      // Atualiza a pontuação
       setScore((prevScore) => prevScore + 1);
+      
+      // Gera novo índice para o quadrado preto
+      const newBlackSquareIndex = generateUniqueIndex();
+      setBlackSquareIndices((prevIndices) => {
+        const newIndices = prevIndices.map((oldIndex) => (oldIndex === index ? newBlackSquareIndex : oldIndex));
+        return newIndices;
+      });
+    } else {
+      // Adiciona ou remove o índice selecionado
+      if (selectedIndices.includes(index)) {
+        setSelectedIndices((prevIndices) => prevIndices.filter((selectedIndex) => selectedIndex !== index));
+      } else {
+        setSelectedIndices((prevIndices) => [...prevIndices, index]);
+      }
     }
   };
 
@@ -105,8 +109,8 @@ const Game: React.FC = () => {
   return (
     <div className={game.flexGrow}>
       <div className={game.img_control}>
-        <img src={logo_vm} style={{width:'60%'}}/>
-        <img src={pixelArt}/>
+        <img src={logo_vm} style={{ width: '60%' }} />
+        <img src={pixelArt} />
       </div>
       <div className={game.barControl}>
         <ScoreBar score={score} />
@@ -130,7 +134,7 @@ const Game: React.FC = () => {
           isOpen={modalOpen}
           onClose={closeModal}
           score={score}
-          message={""}
+          message ={""}
         />
       </div>
       <div className={game.yellowCircle}></div>
