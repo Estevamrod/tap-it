@@ -1,9 +1,13 @@
+import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Tiles from '../components/pages/Game/Tiles';
 import ScoreBar from '../components/pages/Game/ScoreBar';
 import ScoreModal from '../components/pages/Game/ScoreModal';
-import * as React from 'react';
+import TimerBar from '../components/pages/Game/Time';
+import logo_vm from '../assets/vm.png';
+import pixelArt from '../assets/pixelArt_logo.png';
+import game from '../styles/Game.module.css';
 
 const generateUniqueIndices = () => {
   const indices = new Set<number>();
@@ -20,8 +24,7 @@ const Game: React.FC = () => {
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(10);
   const [modalOpen, setModalOpen] = useState(false);
-  const [device, setDevice] = useState('');
-  const navigate = useNavigate(); // Inicializando o useNavigate
+  const navigate = useNavigate();
 
   const openModal = () => {
     setModalOpen(true);
@@ -39,17 +42,8 @@ const Game: React.FC = () => {
     setBlackSquareIndices(generateUniqueIndices());
   };
 
-  // Start the timer when a tile is clicked
   useEffect(() => {
     if (gameStart) {
-      // Identify user device
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        setDevice('Mobile');
-      } else {
-        setDevice('PC');
-      }
-
-      // Setup game timer
       const gameTimer = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
@@ -60,7 +54,6 @@ const Game: React.FC = () => {
     }
   }, [gameStart]);
 
-  // Handle game over when timer reaches 0
   useEffect(() => {
     if (timer <= 0) {
       openModal();
@@ -68,41 +61,40 @@ const Game: React.FC = () => {
     }
   }, [timer]);
 
-  // Redirecionar após 3 segundos se o modal estiver aberto
   useEffect(() => {
     if (modalOpen) {
       const redirectTimer = setTimeout(() => {
-        navigate('/gameover'); // Substitua '/outra-pagina' pela rota desejada
-      }, 3500); // 3000 milissegundos = 3 segundos
+        navigate('/gameover');
+      }, 3500);
 
-      return () => clearTimeout(redirectTimer); // Limpar o timer ao desmontar
+      return () => clearTimeout(redirectTimer);
     }
   }, [modalOpen, navigate]);
 
   const handleSquareClick = (index: number): void => {
-    if (gameStart === false) {
+    // Iniciar o jogo no primeiro clique
+    if (!gameStart) {
       setGameStart(true);
     }
 
-    // Toggle the selection state of the clicked tile based on its index
-    if (selectedIndices.includes(index)) {
-      setSelectedIndices((prevIndices) =>
-        prevIndices.filter((selectedIndex) => selectedIndex !== index)
-      );
-    } else {
-      setSelectedIndices((prevIndices) => [...prevIndices, index]);
-    }
-
-    // Black tile clicked
+    // Verifica se o índice é um quadrado preto
     if (blackSquareIndices.includes(index)) {
-      const newIndices = blackSquareIndices.map((oldIndex) => {
-        if (oldIndex === index) {
-          return generateUniqueIndex();
-        }
-        return oldIndex;
-      });
-      setBlackSquareIndices(newIndices);
+      // Atualiza a pontuação
       setScore((prevScore) => prevScore + 1);
+      
+      // Gera novo índice para o quadrado preto
+      const newBlackSquareIndex = generateUniqueIndex();
+      setBlackSquareIndices((prevIndices) => {
+        const newIndices = prevIndices.map((oldIndex) => (oldIndex === index ? newBlackSquareIndex : oldIndex));
+        return newIndices;
+      });
+    } else {
+      // Adiciona ou remove o índice selecionado
+      if (selectedIndices.includes(index)) {
+        setSelectedIndices((prevIndices) => prevIndices.filter((selectedIndex) => selectedIndex !== index));
+      } else {
+        setSelectedIndices((prevIndices) => [...prevIndices, index]);
+      }
     }
   };
 
@@ -115,40 +107,39 @@ const Game: React.FC = () => {
   };
 
   return (
-  <div className='flex-grow container mx-auto'>
-    <div className='flex justify-center'>
-      <div className='flex flex-col max-w-2xl bg-gray-100 border text-gray-800 select-none p-4'> {/* Aumentando a largura do contêiner */}
-        <ScoreBar
-          score={score}
-        />
-        <div className='grid grid-cols-4 gap-2'> {/* Adicionando espaço entre os tiles */}
-          {Array.from(Array(16), (_, index) => (
-            <Tiles
-              key={index}
-              device={device}
-              isBlack={blackSquareIndices.includes(index)}
-              isSelected={selectedIndices.includes(index)}
-              onClick={() => handleSquareClick(index)}
-            />
-          ))}
-        </div>
-        <div className='p-2 text-center text-lg'>
-          {gameStart ? (
-            <div>Timer: {timer} sec</div>
-          ) : (
-            <div>Boa Sorte!</div>
-          )}
-        </div>
+    <div className={game.flexGrow}>
+      <div className={game.img_control}>
+        <img src={logo_vm} style={{ width: '60%' }} />
+        <img src={pixelArt} />
       </div>
-      <ScoreModal
-        isOpen={modalOpen}
-        onClose={closeModal}
-        score={score}
-        message={""}
-      />
+      <div className={game.barControl}>
+        <ScoreBar score={score} />
+        <TimerBar timer={timer} />
+      </div>
+      <div className='flex justify-center'>
+        <div className={game.gameContainer}>
+          <div className='grid grid-cols-4'>
+            {Array.from(Array(16), (_, index) => (
+              <Tiles
+                key={index}
+                isBlack={blackSquareIndices.includes(index)}
+                isSelected={selectedIndices.includes(index)}
+                onClick={() => handleSquareClick(index)}
+                device={'computer'}
+              />
+            ))}
+          </div>
+        </div>
+        <ScoreModal
+          isOpen={modalOpen}
+          onClose={closeModal}
+          score={score}
+          message ={""}
+        />
+      </div>
+      <div className={game.yellowCircle}></div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Game;
