@@ -5,6 +5,9 @@ import ScoreBar from '../components/pages/Game/ScoreBar';
 import ScoreModal from '../components/pages/Game/ScoreModal';
 import * as React from 'react';
 import TimerBar from '../components/pages/Game/Time';
+import game from '../styles/Game.module.css'
+import vmLogo from '../assets/vm.png'
+import VisualTap from '../assets/pixelArt_logo.png'
 
 const generateUniqueIndices = () => {
   const indices = new Set<number>();
@@ -110,6 +113,10 @@ const Game: React.FC = () => {
 
   return (
     <div className='flex-grow container mx-auto'>
+        <div className="grid grid-cols-2 items-center justify-items-center absolute top-20 left-0">
+          <img src={vmLogo} style={{width:'70%'}}/>
+          <img src={VisualTap} style={{width:'60%'}}/>
+        </div>
       <div className='flex justify-center'>
         <div className='flex flex-col text-gray-800 select-none p-4'>  {/* Aqui eu removi o seguinte atributo => max-w-2xl | border | bg-gray-100*/}
         <div className="grid grid-cols-2 mb-5">
@@ -135,6 +142,7 @@ const Game: React.FC = () => {
         message={""}
       />
     </div>
+    <div className={game.yellowCircle}></div>
   </div>
 );
 };
