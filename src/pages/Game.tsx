@@ -4,6 +4,7 @@ import Tiles from '../components/pages/Game/Tiles';
 import ScoreBar from '../components/pages/Game/ScoreBar';
 import ScoreModal from '../components/pages/Game/ScoreModal';
 import * as React from 'react';
+import TimerBar from '../components/pages/Game/Time';
 
 const generateUniqueIndices = () => {
   const indices = new Set<number>();
@@ -110,9 +111,12 @@ const Game: React.FC = () => {
   return (
     <div className='flex-grow container mx-auto'>
       <div className='flex justify-center'>
-        <div className='flex flex-col max-w-2xl bg-gray-100 border text-gray-800 select-none p-4'>
-        <ScoreBar score={score} />
-        <div className='grid grid-cols-4 gap-2'>
+        <div className='flex flex-col text-gray-800 select-none p-4'>  {/* Aqui eu removi o seguinte atributo => max-w-2xl | border | bg-gray-100*/}
+        <div className="grid grid-cols-2 mb-5">
+          <ScoreBar score={score} />
+          <TimerBar timer={timer}/>
+        </div>
+        <div className='grid grid-cols-4'> {/*Aqui eu removi => gap-2*/}
           {Array.from(Array(16), (_, index) => (
             <Tiles
               key={index}
@@ -122,13 +126,6 @@ const Game: React.FC = () => {
               onClick={() => handleSquareClick(index)}
             />
           ))}
-        </div>
-        <div className='p-2 text-center text-lg'>
-          {gameStart ? (
-            <div>Timer: {timer} sec</div>
-          ) : (
-            <div>Boa Sorte!</div>
-          )}
         </div>
       </div>
       <ScoreModal
