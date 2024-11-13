@@ -1,13 +1,9 @@
-import * as React from 'react'
-import {useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Tiles from '../components/pages/Game/Tiles';
 import ScoreBar from '../components/pages/Game/ScoreBar';
 import ScoreModal from '../components/pages/Game/ScoreModal';
-import TimerBar from '../components/pages/Game/Time';
-import logo_vm from '../assets/vm.png'
-import pixelArt from '../assets/pixelArt_logo.png'
-import game from '../styles/Game.module.css';
+import * as React from 'react';
 
 const generateUniqueIndices = () => {
   const indices = new Set<number>();
@@ -24,6 +20,7 @@ const Game: React.FC = () => {
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(10);
   const [modalOpen, setModalOpen] = useState(false);
+  const [device, setDevice] = useState('');
   const navigate = useNavigate();
 
   const openModal = () => {
@@ -44,6 +41,12 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     if (gameStart) {
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        setDevice('Mobile');
+      } else {
+        setDevice('PC');
+      }
+
       const gameTimer = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
@@ -77,7 +80,9 @@ const Game: React.FC = () => {
     }
 
     if (selectedIndices.includes(index)) {
-      setSelectedIndices((prevIndices) => prevIndices.filter((selectedIndex) => selectedIndex !== index));
+      setSelectedIndices((prevIndices) =>
+        prevIndices.filter((selectedIndex) => selectedIndex !== index)
+      );
     } else {
       setSelectedIndices((prevIndices) => [...prevIndices, index]);
     }
@@ -103,39 +108,38 @@ const Game: React.FC = () => {
   };
 
   return (
-    <div className={game.flexGrow}>
-      <div className={game.img_control}>
-        <img src={logo_vm} style={{width:'60%'}}/>
-        <img src={pixelArt}/>
-      </div>
-      <div className={game.barControl}>
-        <ScoreBar score={score} />
-        <TimerBar timer={timer} />
-      </div>
+    <div className='flex-grow container mx-auto'>
       <div className='flex justify-center'>
-        <div className={game.gameContainer}>
-          <div className='grid grid-cols-4'>
-            {Array.from(Array(16), (_, index) => (
-              <Tiles
-                key={index}
-                isBlack={blackSquareIndices.includes(index)}
-                isSelected={selectedIndices.includes(index)}
-                onClick={() => handleSquareClick(index)}
-                device={'computer'}
-              />
-            ))}
-          </div>
+        <div className='flex flex-col max-w-2xl bg-gray-100 border text-gray-800 select-none p-4'>
+        <ScoreBar score={score} />
+        <div className='grid grid-cols-4 gap-2'>
+          {Array.from(Array(16), (_, index) => (
+            <Tiles
+              key={index}
+              device={device}
+              isBlack={blackSquareIndices.includes(index)}
+              isSelected={selectedIndices.includes(index)}
+              onClick={() => handleSquareClick(index)}
+            />
+          ))}
         </div>
-        <ScoreModal
-          isOpen={modalOpen}
-          onClose={closeModal}
-          score={score}
-          message={""}
-        />
+        <div className='p-2 text-center text-lg'>
+          {gameStart ? (
+            <div>Timer: {timer} sec</div>
+          ) : (
+            <div>Boa Sorte!</div>
+          )}
+        </div>
       </div>
-      <div className={game.yellowCircle}></div>
+      <ScoreModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        score={score}
+        message={""}
+      />
     </div>
-  );
+  </div>
+);
 };
 
 export default Game;
