@@ -16,7 +16,7 @@ const Credit = () => {
                     <span className="text-2xl font-normal text-cyan-800">@visualmidialeme</span>
                 </div>
             </div>
-            <Link to={'/rankings'}>
+            <Link to={'/gameover'}>
                 <button className="mt-10 mb-10 rounded-full items-center text-center text-3xl py-5 px-16 bg-cyan-950 text-white hover:bg-cyan-800">ESTOU SEGUINDO</button>
             </Link>
             <div className="guyControl mt-10 z-10">
