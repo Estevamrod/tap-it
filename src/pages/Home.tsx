@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Link } from 'react-router-dom';
 import pixelLogo from '../assets/pixelArt_logo.png';
-import excel from '../assets/excel.jpg'
-import word from '../assets/word.jpg'
-import powerpoint from '../assets/powerpoint.jpg'
-import photoshop from '../assets/photoshop.jpg'
-import illustrator from '../assets/illustrator.jpg'
-import csharp from '../assets/csharp.jpg'
+import excel from '../assets/excel.svg'
+import word from '../assets/word.svg'
+import powerpoint from '../assets/powerpoint.svg'
+import photoshop from '../assets/photoshop.svg'
+import illustrator from '../assets/illustrator.svg'
+import csharp from '../assets/csharp.svg'
 import Logo2 from '../assets/vm_branca.png';
 import guyPointing from '../assets/teste.png'
 import '../styles/Homepage.css'

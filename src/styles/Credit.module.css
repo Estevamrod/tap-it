@@ -1,0 +1,13 @@
+.yellowCircle {
+    width: 150%;
+    height: 800px;
+    background-color: #E99839;
+    border-radius: 50%;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

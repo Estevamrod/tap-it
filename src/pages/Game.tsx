@@ -71,7 +71,7 @@ const Game: React.FC = () => {
   useEffect(() => {
     if (modalOpen) {
       const redirectTimer = setTimeout(() => {
-        navigate('/gameover');
+        navigate('/credit');
       }, 3500);
 
       return () => clearTimeout(redirectTimer);
