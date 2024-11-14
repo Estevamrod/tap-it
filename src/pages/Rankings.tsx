@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo1 from '../assets/logo.png';
-import casa from '../assets/casa.png';
-import Logo2 from '../assets/logovm.png';
+import vm from '../assets/vm.png';
+import vmPixel from '../assets/pixelArt_logo.png';
+import homeicon from '../assets/casa.png';
+import game from '../styles/Game.module.css'
+import ranking from '../styles/Ranking.module.css'
 
 interface Score {
   name: string;
@@ -64,45 +66,43 @@ const Ranking: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="text-circle">
-        <p>JOGO DA<br />MEMÓRIA</p>
+    <div>
+      <div className='text-center absolute top-1/4 left-1/3'>
+        <h1 className="text-5xl font-bold text-cyan-800 py-2.5 px-4">CLASSIFICAÇÃO</h1>
       </div>
-
-      <div className="logo">
-        <img className="logo1" src={Logo1} alt="Logo 1" />
-        <img className="logo2" src={Logo2} alt="Logo 2" />
+      <div className="grid grid-cols-2 items-center justify-items-center absolute top-20 left-0">
+        <img src={vm} style={{width:'70%'}}/>
+        <img src={vmPixel} style={{width:'60%'}}/>
       </div>
-
-      <h1 className="titulo">CLASSIFICAÇÃO</h1>
-
-      <div className="table">
+      <div className={ranking.table}>
         {scores.map((score, index) => (
-          <div className="row" key={index}>
-            <div className="cell">{index + 1}º</div>
-            <div className="cell">{score.name}</div>
-            <div className="cell">{score.score}</div>
+          <div className={ranking.row} key={index}>
+            <div className={ranking.cell}>{index + 1}º</div>
+            <div className={ranking.cell}>{score.name}</div>
+            <div className={ranking.cell}>{score.score}</div>
           </div>
         ))}
       </div>
 
       {/* Se o jogador atual estiver acima do 10º lugar, exiba-o separadamente */}
       {currentPlayer && currentPlayerPosition && currentPlayerPosition > 10 && (
-        <div className="current-player-section">
+        <div className={ranking.currentPlayerSection}>
           <h2>Sua posição:</h2>
-          <div className="row">
-            <div className="cell">{currentPlayerPosition}º</div>
-            <div className="cell">{currentPlayer.name}</div>
-            <div className="cell">{currentPlayer.score }</div>
+          <div className={ranking.row}>
+            <div className={ranking.cell}>{currentPlayerPosition}º</div>
+            <div className={ranking.cell}>{currentPlayer.name}</div>
+            <div className={ranking.cell}>{currentPlayer.score }</div>
           </div>
         </div>
       )}
-
-      <button className="return-button">
+      <div className='absolute w-24 bg-white py-4 px-4 rounded-3xl items-center hover:bg-slate-50	' style={{bottom:'2%', left:'86%'}}>
         <Link to="/">
-          <img src={casa} alt="Ícone de casa" />
+          <button>
+              <img src={homeicon} alt="Ícone de casa" className='w-full'/>
+          </button>
         </Link>
-      </button>
+      </div>
+    <div className={game.yellowCircle}></div>
     </div>
   );
 };
