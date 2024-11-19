@@ -44,7 +44,6 @@ const Tiles: React.FC<TileProps> = ({ device, isBlack, onClick, className }) => 
     <div
       className={`${baseClasses} ${tileSize} md:w-48 md:h-48`} // Aumentei para 48 em dispositivos maiores
       onMouseDown={handleClick}
-      style={{border:'1px solid #014B6E'}}
     >
       <div className='absolute w-full h-full bg-white rounded-full opacity-0 pointer-events-none'></div>
     </div>

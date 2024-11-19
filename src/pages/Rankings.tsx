@@ -67,17 +67,47 @@ const Ranking: React.FC = () => {
 
   return (
     <div>
-      <div className='text-center absolute top-1/4 left-1/3'>
-        <h1 className="text-5xl font-bold text-cyan-800 py-2.5 px-4">CLASSIFICAÇÃO</h1>
+      <div className='text-center absolute top-1/4' style={{left:'27%'}}>
+        <h1 className="text-5xl font-bold text-cyan-800 py-2.5 px-4">Classificação Geral</h1>
       </div>
+
       <div className="grid grid-cols-2 items-center justify-items-center absolute top-20 left-0">
         <img src={vm} style={{width:'70%'}}/>
         <img src={vmPixel} style={{width:'60%'}}/>
       </div>
       <div className={ranking.table}>
-        {scores.map((score, index) => (
-          <div className={ranking.row} key={index}>
-            <div className={ranking.cell}>{index + 1}º</div>
+        <div className={`${ranking.container} ${ranking.podium}`}>
+          {/* Verifica se há pelo menos 2 jogadores para exibir o pódio */}
+          {scores.length > 1 && (
+            <div className={ranking.podium__item}>
+              <p className={ranking.podium__city}>{scores[1].name}</p>
+              <div className={`${ranking.podium__rank} ${ranking.second}`}>
+                2
+              </div>
+            </div>
+          )}
+          {scores.length > 0 && (
+            <div className={ranking.podium__item}>
+              <p className={ranking.podium__city}>{scores[0].name}</p>
+              <div className={`${ranking.podium__rank} ${ranking.first}`}>
+                1
+              </div>
+            </div>
+          )}
+          {scores.length > 2 && (
+            <div className={ranking.podium__item}>
+              <p className={ranking.podium__city}>{scores[2].name}</p>
+              <div className={`${ranking.podium__rank} ${ranking.third}`}>
+                3
+              </div>
+            </div>
+          )}
+        </div>
+          
+        {/* Renderizando os jogadores fora do top 3 */}
+        {scores.slice(3).map((score, index) => (
+          <div className={ranking.row} key={index + 3}>
+            <div className={ranking.cell}>{index + 4}º</div>
             <div className={ranking.cell}>{score.name}</div>
             <div className={ranking.cell}>{score.score}</div>
           </div>
