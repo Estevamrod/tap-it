@@ -1,46 +1,27 @@
-import * as React from "react"; 
-import {useEffect} from 'react';
+import * as React from "react";
+import './style/style.css'
 
-type ScoreProps = {
+type LoadingProps = {
   isOpen: boolean;
-  onClose: () => void;
-  score: number;
-  message: string;
 };
 
-const Modal: React.FC<ScoreProps> = ({
-  isOpen,
-  score,
-}) => {
-  
-    useEffect(() => {
-      if (score) {
-        localStorage.removeItem('currentPlayername');
-        localStorage.setItem('currentScore', score.toString());
-      }
-    }, [score]);
-
+const Loading: React.FC<LoadingProps> = ({ isOpen }) => {
   if (!isOpen) {
     return null;
   }
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center m-2 select-none'>
-      <div className='fixed inset-0 bg-neutral-900 opacity-75'></div>
-      <div className='relative bg-neutral-900 p-8 w-full max-w-sm mx-auto rounded border'>
-        <div className='flex flex-col gap-4'>
-          <div style={{display:'flex', justifyContent:"space-around", padding:"4px", marginTop:"6px", gap:"6px", flexDirection:"column", alignItems:"center"}}>
-            <span>Sua pontuação foi:</span>
-            <div>
-              <p>Score:</p>
-              <span className='text-4xl font-semibold'>{score}</span>
-            </div>
-          </div>
-          <span style={{fontSize: "10px"}}>Redirecionando...</span>
+    <div className='fixed inset-0 z-50 flex items-center justify-center m-0 select-none bg-gray-800 bg-opacity-75'>
+      <div className='flex flex-col items-center p-4 h-32 overflow-visible'> {/* Aumentando a altura */}
+        <div className='flex space-x-2'>
+          <div className='w-6 h-6 rounded-full bg-white animate-custom-bounce'></div>
+          <div className='w-6 h-6 rounded-full bg-white animate-custom-bounce delay-200'></div>
+          <div className='w-6 h-6 rounded-full bg-white animate-custom-bounce delay-400'></div>
         </div>
+        <span className='text-white mt-2 p-2' style={{ fontSize: "10px" }}>Carregando...</span>
       </div>
     </div>
   );
 };
 
-export default Modal;
+export default Loading;
