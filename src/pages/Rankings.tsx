@@ -67,7 +67,7 @@ const Ranking: React.FC = () => {
 
   return (
     <div>
-      <div className='text-center absolute top-1/4' style={{left:'27%'}}>
+      <div className='text-center absolute' style={{left:'27%', top:'18%'}}>
         <h1 className="text-5xl font-bold text-cyan-800 py-2.5 px-4">Classificação Geral</h1>
       </div>
 
@@ -75,12 +75,12 @@ const Ranking: React.FC = () => {
         <img src={vm} style={{width:'70%'}}/>
         <img src={vmPixel} style={{width:'60%'}}/>
       </div>
-      <div className={`${ranking.table} absolute flex flex-col justify-center items-center`} style={{left:"11%"}}>
+      <div className={`${ranking.table} absolute flex flex-col justify-center items-center`} style={{left:"11%",top:"20%"}}>
         <div className={`${ranking.container} ${ranking.podium} mb-10 gap-2.5`}>
           {/* Verifica se há pelo menos 2 jogadores para exibir o pódio */}
           {scores.length > 1 && (
             <div className={ranking.podium__item}>
-              <p className={ranking.podium__city}>{scores[1].name}</p>
+              <p className={`${ranking.podium__city} text-4xl`}>{scores[1].name}</p>
               <div className={`${ranking.podium__rank} ${ranking.second} rounded-t-3xl text-center p-2.5`}>
                 2° Lugar
               </div>
@@ -88,7 +88,7 @@ const Ranking: React.FC = () => {
           )}
           {scores.length > 0 && (
             <div className={ranking.podium__item}>
-              <p className={ranking.podium__city}>{scores[0].name}</p>
+              <p className={`${ranking.podium__city} text-4xl`}>{scores[0].name}</p>
               <div className={`${ranking.podium__rank} ${ranking.first} rounded-t-3xl	text-center p-2.5`}>
                 1° Lugar
               </div>
@@ -96,7 +96,7 @@ const Ranking: React.FC = () => {
           )}
           {scores.length > 2 && (
             <div className={`${ranking.podium__item}`}>
-              <p className={ranking.podium__city}>{scores[2].name}</p>
+              <p className={`${ranking.podium__city} text-4xl`}>{scores[2].name}</p>
               <div className={`${ranking.podium__rank} ${ranking.third} rounded-t-3xl	text-center p-2.5`}>
                 3° Lugar
               </div>
@@ -115,9 +115,9 @@ const Ranking: React.FC = () => {
 
       {/* Se o jogador atual estiver acima do 10º lugar, exiba-o separadamente */}
       {currentPlayer && currentPlayerPosition && currentPlayerPosition > 10 && (
-        <div className={ranking.currentPlayerSection}>
+        <div className={`${ranking.currentPlayerSection} text-4xl`}>
           <h2>Sua posição:</h2>
-          <div className={ranking.row}>
+          <div className={`${ranking.row} w-full flex justify-between`}>
             <div className={ranking.cell}>{currentPlayerPosition}º</div>
             <div className={ranking.cell}>{currentPlayer.name}</div>
             <div className={ranking.cell}>{currentPlayer.score }</div>
