@@ -31,18 +31,6 @@ const Game: React.FC = () => {
     setModalOpen(true);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
-    restartGame();
-  };
-
-  const restartGame = () => {
-    setGameStart(false);
-    setScore(0);
-    setTimer(10);
-    setBlackSquareIndices(generateUniqueIndices());
-  };
-
   useEffect(() => {
     if (gameStart) {
       if (/Mobi|Android/i.test(navigator.userAgent)) {
