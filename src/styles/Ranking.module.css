@@ -89,7 +89,6 @@ body {
   .cell {
     display: table-cell;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
     /* Adiciona uma linha separadora */
   }
 
@@ -147,7 +146,7 @@ body {
     /* Move o elemento de volta metade da sua largura e altura, para centralizá-lo */
     text-align: center;
     /* Centraliza o texto horizontalmente */
-    font-size: 4.5rem;
+    font-size: 4.05rem;
     /* Tamanho do texto */
     color: #FFF;
     /* Cor do texto */
@@ -216,7 +215,7 @@ body {
 
 .podium .first {
   min-height: 300px;
-  font-size: 65px;
+  font-size: 45px;
   background-color: #004D7D;
 }
 

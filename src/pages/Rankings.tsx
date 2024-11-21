@@ -75,38 +75,37 @@ const Ranking: React.FC = () => {
         <img src={vm} style={{width:'70%'}}/>
         <img src={vmPixel} style={{width:'60%'}}/>
       </div>
-      <div className={ranking.table}>
-        <div className={`${ranking.container} ${ranking.podium}`}>
+      <div className={`${ranking.table} absolute flex flex-col justify-center items-center`} style={{left:"11%"}}>
+        <div className={`${ranking.container} ${ranking.podium} mb-10 gap-2.5`}>
           {/* Verifica se há pelo menos 2 jogadores para exibir o pódio */}
           {scores.length > 1 && (
             <div className={ranking.podium__item}>
               <p className={ranking.podium__city}>{scores[1].name}</p>
-              <div className={`${ranking.podium__rank} ${ranking.second}`}>
-                2
+              <div className={`${ranking.podium__rank} ${ranking.second} rounded-t-3xl text-center p-2.5`}>
+                2° Lugar
               </div>
             </div>
           )}
           {scores.length > 0 && (
             <div className={ranking.podium__item}>
               <p className={ranking.podium__city}>{scores[0].name}</p>
-              <div className={`${ranking.podium__rank} ${ranking.first}`}>
-                1
+              <div className={`${ranking.podium__rank} ${ranking.first} rounded-t-3xl	text-center p-2.5`}>
+                1° Lugar
               </div>
             </div>
           )}
           {scores.length > 2 && (
-            <div className={ranking.podium__item}>
+            <div className={`${ranking.podium__item}`}>
               <p className={ranking.podium__city}>{scores[2].name}</p>
-              <div className={`${ranking.podium__rank} ${ranking.third}`}>
-                3
+              <div className={`${ranking.podium__rank} ${ranking.third} rounded-t-3xl	text-center p-2.5`}>
+                3° Lugar
               </div>
             </div>
           )}
         </div>
-          
         {/* Renderizando os jogadores fora do top 3 */}
         {scores.slice(3).map((score, index) => (
-          <div className={ranking.row} key={index + 3}>
+          <div className={`${ranking.row} flex justify-between w-full mt-10 text-4xl`} key={index + 3}>
             <div className={ranking.cell}>{index + 4}º</div>
             <div className={ranking.cell}>{score.name}</div>
             <div className={ranking.cell}>{score.score}</div>
