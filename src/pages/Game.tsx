@@ -125,6 +125,7 @@ const Game: React.FC = () => {
       </div>
       <ScoreModal
         isOpen={modalOpen}
+        score={score}
       />
     </div>
     <div className={game.yellowCircle}></div>

@@ -1,11 +1,21 @@
 import * as React from "react";
+import { useEffect } from "react";
 import './style/style.css'
 
 type LoadingProps = {
   isOpen: boolean;
+  score: number;
 };
 
-const Loading: React.FC<LoadingProps> = ({ isOpen }) => {
+const Loading: React.FC<LoadingProps> = ({ isOpen, score }) => {
+
+  useEffect(() => {
+    if (score) {
+      localStorage.removeItem('currentPlayername');
+      localStorage.setItem('currentScore', score.toString());
+    }
+  }, [score])
+
   if (!isOpen) {
     return null;
   }
