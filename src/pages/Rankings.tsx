@@ -67,15 +67,15 @@ const Ranking: React.FC = () => {
 
   return (
     <div>
-      <div className='text-center absolute' style={{left:'27%', top:'18%'}}>
+      <div className='text-center absolute' style={{left:'27%', top:'15%'}}>
         <h1 className="text-5xl font-bold text-cyan-800 py-2.5 px-4">Classificação Geral</h1>
       </div>
 
-      <div className="grid grid-cols-2 items-center justify-items-center absolute top-20 left-0">
+      <div className="grid grid-cols-2 items-center justify-items-center absolute top-0 left-0">
         <img src={vm} style={{width:'70%'}}/>
         <img src={vmPixel} style={{width:'60%'}}/>
       </div>
-      <div className={`${ranking.table} absolute flex flex-col justify-center items-center`} style={{left:"11%",top:"20%"}}>
+      <div className={`${ranking.table} absolute flex flex-col justify-center items-center`} style={{left:"11%",top:"16%"}}>
         <div className={`${ranking.container} ${ranking.podium} mb-10 gap-2.5`}>
           {/* Verifica se há pelo menos 2 jogadores para exibir o pódio */}
           {scores.length > 1 && (
@@ -106,28 +106,44 @@ const Ranking: React.FC = () => {
             </div>
           )}
         </div>
+        <div className="h-auto p-10" style={{width:'90%', backgroundColor:"#0087DA", zIndex:'2', borderRadius:'20px', boxShadow: "29px 0px 0px 0px rgb(0 77 125)"}}>
         {/* Renderizando os jogadores fora do top 3 */}
         {scores.slice(3).map((score, index) => (
-          <div className={`${ranking.row} flex justify-between w-full mt-10 text-4xl`} key={index + 3}>
-            <div className={ranking.cell}>{index + 4}º</div>
-            <div className={ranking.cell}>{score.name}</div>
-            <div className={ranking.cell}>{score.score}</div>
+          <div className={`${ranking.row} flex justify-between w-full mt-10 mb-10 text-4xl`} key={index + 3} style={{borderBottom:'2px solid black'}}>
+            <div className={ranking.cell}>
+              <p className='text-white'>{index + 4}º</p>
+            </div>
+            <div className={ranking.cell}>
+              <p className='text-white'>{score.name}</p>
+            </div>
+            <div className={ranking.cell}>
+              <p className='text-white'>{score.score}</p>
+            </div>
           </div>
         ))}
+        </div>
       </div>
 
       {/* Se o jogador atual estiver acima do 10º lugar, exiba-o separadamente */}
       {currentPlayer && currentPlayerPosition && currentPlayerPosition > 10 && (
-        <div className={`${ranking.currentPlayerSection} text-4xl`}>
-          <h2>Sua posição:</h2>
+        <div className={`${ranking.currentPlayerSection} text-4xl`} style={{backgroundColor:"#0087DA", padding:'20px', borderRadius:"23px", width:"69%", boxShadow: "rgb(0, 77, 125) 20px 0px 0px 0px", position:"absolute", left:'14%'}}>
+          <div className='flex justify-center' style={{fontSize:'40px', marginBottom:'10px'}}>
+            <h2 className='text-white'>Sua posição</h2>
+          </div>
           <div className={`${ranking.row} w-full flex justify-between`}>
-            <div className={ranking.cell}>{currentPlayerPosition}º</div>
-            <div className={ranking.cell}>{currentPlayer.name}</div>
-            <div className={ranking.cell}>{currentPlayer.score }</div>
+            <div className={ranking.cell}>
+              <p className='text-white'>{currentPlayerPosition}º</p>
+            </div>
+            <div className={ranking.cell}>
+              <p className='text-white'>{currentPlayer.name}</p>
+            </div>
+            <div className={ranking.cell}>
+              <p className='text-white'>{currentPlayer.score}</p>
+            </div>
           </div>
         </div>
       )}
-      <div className='absolute w-24 bg-white py-4 px-4 rounded-3xl items-center hover:bg-slate-50	' style={{bottom:'2%', left:'86%'}}>
+      <div className='absolute w-24 bg-white py-4 px-4 rounded-3xl items-center hover:bg-slate-50	' style={{bottom:'6%', left:'86%'}}>
         <Link to="/">
           <button>
               <img src={homeicon} alt="Ícone de casa" className='w-full'/>
