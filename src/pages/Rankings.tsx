@@ -81,24 +81,27 @@ const Ranking: React.FC = () => {
           {scores.length > 1 && (
             <div className={ranking.podium__item}>
               <p className={`${ranking.podium__city} text-4xl`}>{scores[1].name}</p>
-              <div className={`${ranking.podium__rank} ${ranking.second} rounded-t-3xl text-center p-2.5`}>
+              <div className={`${ranking.podium__rank} ${ranking.second} rounded-t-3xl text-center p-2.5 flex justify-center items-center flex-col`}>
                 2° Lugar
+                <p className='text-4xl mt-10'>Pts - {scores[1].score}</p>
               </div>
             </div>
           )}
           {scores.length > 0 && (
             <div className={ranking.podium__item}>
               <p className={`${ranking.podium__city} text-4xl`}>{scores[0].name}</p>
-              <div className={`${ranking.podium__rank} ${ranking.first} rounded-t-3xl	text-center p-2.5`}>
+              <div className={`${ranking.podium__rank} ${ranking.first} rounded-t-3xl	text-center p-2.5 flex justify-between items-center flex-col`}>
                 1° Lugar
+                <p className='text-4xl mt-14'>Pts - {scores[0].score}</p>
               </div>
             </div>
           )}
           {scores.length > 2 && (
             <div className={`${ranking.podium__item}`}>
               <p className={`${ranking.podium__city} text-4xl`}>{scores[2].name}</p>
-              <div className={`${ranking.podium__rank} ${ranking.third} rounded-t-3xl	text-center p-2.5`}>
+              <div className={`${ranking.podium__rank} ${ranking.third} rounded-t-3xl	text-center p-2.5 flex justify-center items-center flex-col`}>
                 3° Lugar
+                <p className='text-4xl mt-5'>Pts - {scores[2].score}</p>
               </div>
             </div>
           )}
