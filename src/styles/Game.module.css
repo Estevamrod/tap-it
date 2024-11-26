@@ -21,11 +21,11 @@
 
 .yellowCircle {
     width: 150%;
-    height: 800px;
+    height: 1013px;
     background-color: #E99839;
     border-radius: 50%;
     position: absolute;
-    top: 65%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%);
     z-index: -2;

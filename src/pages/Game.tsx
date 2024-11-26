@@ -101,12 +101,12 @@ const Game: React.FC = () => {
 
   return (
     <div className='flex-grow container mx-auto'>
-        <div className="grid grid-cols-2 items-center justify-items-center absolute top-20 left-0">
+        <div className="grid grid-cols-2 items-center justify-items-center absolute left-0" style={{top:"1rem"}}>
           <img src={vmLogo} style={{width:'70%'}}/>
           <img src={VisualTap} style={{width:'60%'}}/>
         </div>
       <div className='flex justify-center'>
-        <div className='flex flex-col text-gray-800 select-none p-4'>  {/* Aqui eu removi o seguinte atributo => max-w-2xl | border | bg-gray-100*/}
+        <div className='flex flex-col text-gray-800 select-none p-4' style={{position:'absolute', top:'16%'}}>  {/* Aqui eu removi o seguinte atributo => max-w-2xl | border | bg-gray-100*/}
         <div className="grid grid-cols-2 mb-5">
           <ScoreBar score={score} />
           <TimerBar timer={timer}/>
