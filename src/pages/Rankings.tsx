@@ -126,7 +126,7 @@ const Ranking: React.FC = () => {
 
       {/* Se o jogador atual estiver acima do 10º lugar, exiba-o separadamente */}
       {currentPlayer && currentPlayerPosition && currentPlayerPosition > 10 && (
-        <div className={`${ranking.currentPlayerSection} text-4xl`} style={{backgroundColor:"#0087DA", padding:'20px', borderRadius:"23px", width:"69%", boxShadow: "rgb(0, 77, 125) 20px 0px 0px 0px", position:"absolute", left:'14%', top:'71%'}}>
+        <div className={`${ranking.currentPlayerSection} text-4xl`} style={{backgroundColor:"#0087DA", padding:'20px', borderRadius:"23px", width:"69%", boxShadow: "rgb(0, 77, 125) 20px 0px 0px 0px", position:"absolute", left:'14%', top:'84%'}}>
           <div className='flex justify-center' style={{fontSize:'40px', marginBottom:'10px'}}>
             <h2 className='text-white'>Sua posição</h2>
           </div>
