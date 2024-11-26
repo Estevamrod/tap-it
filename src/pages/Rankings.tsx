@@ -109,7 +109,7 @@ const Ranking: React.FC = () => {
         <div className="h-auto p-10" style={{width:'90%', backgroundColor:"#0087DA", zIndex:'2', borderRadius:'20px', boxShadow: "29px 0px 0px 0px rgb(0 77 125)"}}>
         {/* Renderizando os jogadores fora do top 3 */}
         {scores.slice(3).map((score, index) => (
-          <div className={`${ranking.row} flex justify-between w-full mt-2 mb-2 text-4xl`} key={index + 3} style={{borderBottom:'2px solid black'}}>
+          <div className={`${ranking.row} flex justify-between w-full mt-8 mb-8 text-4xl`} key={index + 3} style={{borderBottom:'2px solid black'}}>
             <div className={ranking.cell}>
               <p className='text-white'>{index + 4}º</p>
             </div>
