@@ -109,7 +109,7 @@ const Ranking: React.FC = () => {
         <div className="h-auto p-10" style={{width:'90%', backgroundColor:"#0087DA", zIndex:'2', borderRadius:'20px', boxShadow: "29px 0px 0px 0px rgb(0 77 125)"}}>
         {/* Renderizando os jogadores fora do top 3 */}
         {scores.slice(3).map((score, index) => (
-          <div className={`${ranking.row} flex justify-between w-full mt-10 mb-10 text-4xl`} key={index + 3} style={{borderBottom:'2px solid black'}}>
+          <div className={`${ranking.row} flex justify-between w-full mt-2 mb-2 text-4xl`} key={index + 3} style={{borderBottom:'2px solid black'}}>
             <div className={ranking.cell}>
               <p className='text-white'>{index + 4}º</p>
             </div>
@@ -126,7 +126,7 @@ const Ranking: React.FC = () => {
 
       {/* Se o jogador atual estiver acima do 10º lugar, exiba-o separadamente */}
       {currentPlayer && currentPlayerPosition && currentPlayerPosition > 10 && (
-        <div className={`${ranking.currentPlayerSection} text-4xl`} style={{backgroundColor:"#0087DA", padding:'20px', borderRadius:"23px", width:"69%", boxShadow: "rgb(0, 77, 125) 20px 0px 0px 0px", position:"absolute", left:'14%'}}>
+        <div className={`${ranking.currentPlayerSection} text-4xl`} style={{backgroundColor:"#0087DA", padding:'20px', borderRadius:"23px", width:"69%", boxShadow: "rgb(0, 77, 125) 20px 0px 0px 0px", position:"absolute", left:'14%', top:'71%'}}>
           <div className='flex justify-center' style={{fontSize:'40px', marginBottom:'10px'}}>
             <h2 className='text-white'>Sua posição</h2>
           </div>
