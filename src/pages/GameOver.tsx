@@ -3,8 +3,8 @@ import  { useEffect, useState } from 'react';
 import {useNavigate, Link} from 'react-router-dom'
 import vm from '../assets/vm.png'
 import over from '../styles/GameOver.module.css';
-import vmPixel from '../assets/pixelArt_logo.png';
-import guy from '../assets/teste.png'
+import vmPixel from '../assets/visualTap.png';
+import guy from '../assets/Professor.png'
 
 const GameOver: React.FC = () => {
   const [playerName, setPlayerName] = useState<string>('');

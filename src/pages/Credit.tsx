@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 import vmLogo from '../assets/vm.png';
 import instagram from '../assets/instagram.svg';
-import pixelGuy from '../assets/teste.png';
+import pixelGuy from '../assets/Professor.png';
 import creditCss from '../styles/Credit.module.css';
 
 const Credit = () => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import vm from '../assets/vm.png';
-import vmPixel from '../assets/pixelArt_logo.png';
+import vmPixel from '../assets/visualTap.png';
 import homeicon from '../assets/casa.png';
 import game from '../styles/Game.module.css'
 import ranking from '../styles/Ranking.module.css'

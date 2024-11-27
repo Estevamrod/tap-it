@@ -7,7 +7,7 @@ import * as React from 'react';
 import TimerBar from '../components/pages/Game/Time';
 import game from '../styles/Game.module.css'
 import vmLogo from '../assets/vm.png'
-import VisualTap from '../assets/teste7.svg'
+import VisualTap from '../assets/visualTap.png'
 
 const generateUniqueIndices = () => {
   const indices = new Set<number>();
