@@ -8,7 +8,7 @@ import photoshop from '../assets/photoshop.svg'
 import illustrator from '../assets/illustrator.svg'
 import csharp from '../assets/csharp.svg'
 import Logo2 from '../assets/vm_branca.png';
-import guyPointing from '../assets/teste6.svg'
+import guyPointing from '../assets/teste8.png'
 import '../styles/Homepage.css'
 
 const Home = () => {
