@@ -132,7 +132,7 @@ const Ranking: React.FC = () => {
           </div>
           <div className={`${ranking.row} w-full flex justify-between`} style={{ borderBottom:'2px solid black'}}>
             <div className={ranking.cell}>
-              <p className='text-white'>{currentPlayerPosition}º</p>
+              <p className='text-white' style={{paddingRight:"3px"}}>{currentPlayerPosition}º</p>
             </div>
             <div className={ranking.cell}>
               <p className='text-white'>{currentPlayer.name}</p>

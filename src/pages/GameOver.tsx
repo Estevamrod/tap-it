@@ -7,7 +7,7 @@ import vmPixel from '../assets/visualTap.png';
 import guy from '../assets/Professor.png'
 
 const GameOver: React.FC = () => {
-  const [playerName, setPlayerName] = useState<string>('');
+  const [playerName, setPlayerName] = useState<string>("");
   const [score, setScore] = useState<number>(0);
   const navigate = useNavigate();
 
@@ -55,7 +55,7 @@ const GameOver: React.FC = () => {
                 onChange={(e) => setPlayerName(e.target.value)}
               />
               <div className="flex justify-center mt-10">
-                <Link to={'/rankings'}>
+                <Link to={playerName !== "" ? '/rankings' : '/gameover'}>
                   <button 
                   onClick={submitScore}
                   className='mb-10 mb-10 rounded-full items-center text-center text-3xl py-5 px-16 bg-cyan-950 text-white hover:bg-cyan-800'
